@@ -1,51 +1,50 @@
 //variables needed
-
-let a="", b="";
+let a="",b="";
 let sign="";
 
-//the main function of calculator
-
-function operate() {
-	switch(sign){
-		case'+':
+//performs the actual function
+function operate()
+{
+	switch(sign)
+	{
+		case '+':
 			a=String(Number(a)+Number(b))
 			document.getElementById('numdisplay').innerHTML=a;
-			b=""; sign="";
+			b="";sign="";
 			break;
-		case'-':
+		case '-':
 			a=String(Number(a)-Number(b))
 			document.getElementById('numdisplay').innerHTML=a;
-			b=""; sign="";
-			
-			break;	
-		case'×':
+			b="";sign="";
+			break;
+		case '×':
 			a=String(Number(a)*Number(b))
 			document.getElementById('numdisplay').innerHTML=a;
-			b=""; sign="";
+			b="";sign="";
 			break;
-		case'÷':
+		case '÷':
 			if(b=='0')
 			{
-				document.getElementById('numdisplay').innerHTML = "Cannot divide by zero!";
-				a=""; b="";
+				document.getElementById('numdisplay').innerHTML="Cannot divide by zero!";
+				a="";b="";
 				break;
 			}
 			else
 			{
 				a=String(Number(a)/Number(b))
 				document.getElementById('numdisplay').innerHTML=a;
-				b=""; sign="";
+				b="";sign="";
 				break;
 			}
 	}
 }
 
-//triggered when a button pressed
-
-function perform(p)
+//triggered when a button is pressed
+function perform(m)
 {
-	//checks for "="
-	if(p=="=")
+	
+	//checks for =
+	if(m=="=")
 	{
 		if((a!="")&(b!=""))
 		{
@@ -53,11 +52,17 @@ function perform(p)
 		}
 	}
 	//checks for signs
-	else if((p=="+")||(p=="-")||(p=="×")||(p=="÷"))
+	else if((m=="+")||(m=="-")||(m=="×")||(m=="÷"))
 	{
 		if((a!="")&&(b==""))
 		{
-			sign=p;
+			sign=m;
+			document.getElementById('numdisplay').innerHTML=a+sign;
+		}
+		else if((a!="")&&(b!=""))
+		{
+			operate();
+			sign=m;
 			document.getElementById('numdisplay').innerHTML=a+sign;
 		}
 	}
@@ -66,25 +71,25 @@ function perform(p)
 	{
 		if(sign=="")
 		{
-			a=a+p;
+			a=a+m;
 			document.getElementById('numdisplay').innerHTML=a;
 		}
 		else
 		{
-			b=b+p;
+			b=b+m;
 			document.getElementById('numdisplay').innerHTML=a+sign+b;
 		}
 	}
 }
 
 //function for special buttons
-function specPerform(p)
+function sperform(m)
 {
-	switch(p)
+	switch(m)
 	{
 		case 'AC':
 			location.reload();
-		break;
+			break;
 		case 'DEL':
 			if((a!="")&&(sign!=""))
 			{
@@ -93,23 +98,23 @@ function specPerform(p)
 					sign="";
 					document.getElementById('numdisplay').innerHTML=a;
 				}
-				else //b has some value
+				else//b has some value
 				{
 					var bx= new Array();
 					bx=b.split("");
 					bx.pop();
 					b=bx.join("");
 					document.getElementById('numdisplay').innerHTML=a+sign+b;
-				}	
+				}
 			}
 			else if((a!="")&&(sign==""))
 			{
-					var ax= new Array();
-					ax.a.split("");
-					ax.pop();
-					a=ax.join("");
-					document.getElementById('numdisplay').innerHTML=a;
+				var ax=new Array();
+				ax=a.split("");
+				ax.pop();
+				a=ax.join("");
+				document.getElementById("numdisplay").innerHTML=a;
 			}
-			break;	
+			break;
 	}
 }
