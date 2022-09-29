@@ -12,20 +12,12 @@ body{
 }
 
 .container{
-    /* height: 50%;
-    width: 30%;
-    margin: 40px auto;
-    background-color: #474473;
-    border: 3px inset #eac595;
-    border-radius: 17px;
-    padding: 40px 30px; */
     width: 25%;
     border-radius: 10px;
     overflow: hidden;
     text-align: right;
     box-shadow: 7px 7px 7px 7px rgba(0,0,0,0.4);
     margin: auto;
-    /* padding: 40px 30px; */
     margin-top: 150px;
     background-color:#f1f1f1f1;
 
@@ -33,10 +25,8 @@ body{
 .screen{
     height: 75px;
     width: 100%;
-    /* margin: 10px ; */
     padding: 14px 10px;
     border: 1px solid #283d6d;
-    /* border-radius: 11px; */
     background-color: rgb(0, 0, 0);
     
 }
@@ -52,23 +42,11 @@ body{
 	opacity: 0.5;
 }
 .keypad {
-    /* width: 290px;
-    height: 206px;
-    border: 1px dotted #27b04a;
-    border-radius: 14px;
-    margin: 14px;
-    padding: 12px; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     
 }
 input{ 
-	/* height: 47px;
-    width: 65px;
-    margin: 2px;
-    padding: 4px;
-    border-radius: 10px;
-	font: bold normal 30px Verdana; */
     border:none;
     background-color: white;
     padding:1.6rem;
@@ -84,9 +62,6 @@ input:hover{
 
 
 .specialButtons{
-    /* height: 50px;
-    width: 300px;
-    margin: 0px auto; */
     display: grid ;
     grid-template-columns: 1fr 1fr 1fr;
     font-size: 30px;
